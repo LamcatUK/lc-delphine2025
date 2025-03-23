@@ -31,34 +31,29 @@ get_header();
         ?>
         <div class="row g-5">
             <?php
-            $c = 0;
-            $colCount = 0;
+            $postIndex = 0;
             $columnsPerRow = 3;
             $first = true;
 
             while (have_posts()) {
                 the_post();
+
                 $img = get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'brides__img']) ?: '<img src="' . get_stylesheet_directory_uri() . '/img/default-blog.jpg" class="brides__img">';
 
+                // Set delay for grid items (reset on each row)
                 if ($first) {
-                    $delay = 0; // First row has no delay
+                    $delay = 0;
                 } else {
-                    // ✅ Reset delay when starting a new row AFTER the first row
-                    if (($colCount % $columnsPerRow) === 0) {
-                        $c = 0;
-                    }
-
-                    $class = ''; // Normal rows
-                    $delay = $c;
+                    $delay = ($postIndex % $columnsPerRow) * 200;
                 }
 
-                if ($colCount % $columnsPerRow === 0) {
-                    $c = 0;
-                }
-
-            ?><div class="col-md-6 col-lg-4">
+                // Output the grid item
+            ?>
+                <div class="col-md-6 col-lg-4<?= $first ? ' brides__item--first' : '' ?>">
                     <a href="<?= get_the_permalink() ?>"
-                        class="brides__item" data-aos="fade" data-aos-delay="<?= $c ?>">
+                        class="brides__item"
+                        data-aos="fade"
+                        data-aos-delay="<?= $delay ?>">
                         <div class="brides__image">
                             <?= $img ?>
                         </div>
@@ -70,15 +65,14 @@ get_header();
             <?php
 
                 if ($first) {
-                    $first = false; // ✅ Mark first row as processed
+                    $first = false;
                 } else {
-                    // ✅ Only increment delay for normal rows
-                    $c += 200;
-                    $colCount++;
+                    $postIndex++;
                 }
             }
             ?>
         </div>
+
         <div class="mt-5"><?= understrap_pagination() ?></div>
     </div>
     <section class="quote_cta has-gradient-background">
