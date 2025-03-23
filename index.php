@@ -64,13 +64,6 @@ get_header();
                         </div>
                         <div class="brides__inner">
                             <h3><?= get_field('title') ?: get_the_title() ?></h3>
-                            <?php
-                            if ($first) {
-                            ?>
-                                <div><?= get_field('excerpt') ?: wp_trim_words(get_the_content(), 25) ?></div>
-                            <?php
-                            }
-                            ?>
                         </div>
                     </a>
                 </div>
