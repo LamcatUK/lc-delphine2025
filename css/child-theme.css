@@ -21765,6 +21765,19 @@ main a:not([class]):hover {
   font-weight: bold;
 }
 
+.schema-faq-section:not(:last-of-type) {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--col-accent-400);
+}
+
+.schema-faq-question {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-700);
+  display: block;
+  margin-bottom: 1rem;
+}
+
 /*
 var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
 for (; i < all.length; i++) {

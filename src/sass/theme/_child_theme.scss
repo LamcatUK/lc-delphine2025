@@ -91,6 +91,19 @@ main a:not([class]) {
   font-weight: bold;
 }
 
+// yoast faq
+.schema-faq-section:not(:last-of-type) {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--col-accent-400);
+}
+.schema-faq-question {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-700);
+  display: block;
+  margin-bottom: 1rem;
+}
+
 // show stuff that overflows horizontally
 // * {
 //     outline: 1px solid #f00 !important;

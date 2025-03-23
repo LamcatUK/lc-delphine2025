@@ -4,44 +4,44 @@ function acf_blocks()
     if (function_exists('acf_register_block_type')) {
 
         acf_register_block_type(array(
-            'name'                => 'lc_portfolio', 
-            'title'               => __('LC Portfolio'), 
+            'name'                => 'lc_portfolio',
+            'title'               => __('LC Portfolio'),
             'category'            => 'layout',
-            'icon'                => 'cover-image', 
-            'render_template'    => 'page-templates/blocks/lc_portfolio.php', 
+            'icon'                => 'cover-image',
+            'render_template'    => 'page-templates/blocks/lc_portfolio.php',
             'mode'                => 'edit',
             'supports'            => array('mode' => false),
         ));
 
 
         acf_register_block_type(array(
-            'name'                => 'lc_three_image_cta', 
-            'title'               => __('LC Three Image CTA'), 
+            'name'                => 'lc_three_image_cta',
+            'title'               => __('LC Three Image CTA'),
             'category'            => 'layout',
-            'icon'                => 'cover-image', 
-            'render_template'    => 'page-templates/blocks/lc_three_image_cta.php', 
+            'icon'                => 'cover-image',
+            'render_template'    => 'page-templates/blocks/lc_three_image_cta.php',
             'mode'                => 'edit',
             'supports'            => array('mode' => false),
         ));
 
 
         acf_register_block_type(array(
-            'name'                => 'lc_pushthrough', 
-            'title'               => __('LC Pushthrough'), 
+            'name'                => 'lc_pushthrough',
+            'title'               => __('LC Pushthrough'),
             'category'            => 'layout',
-            'icon'                => 'cover-image', 
-            'render_template'    => 'page-templates/blocks/lc_pushthrough.php', 
+            'icon'                => 'cover-image',
+            'render_template'    => 'page-templates/blocks/lc_pushthrough.php',
             'mode'                => 'edit',
             'supports'            => array('mode' => false),
         ));
 
 
         acf_register_block_type(array(
-            'name'                => 'lc_large_text__cta', 
-            'title'               => __('LC Large Text / CTA'), 
+            'name'                => 'lc_large_text__cta',
+            'title'               => __('LC Large Text / CTA'),
             'category'            => 'layout',
-            'icon'                => 'cover-image', 
-            'render_template'    => 'page-templates/blocks/lc_large_text__cta.php', 
+            'icon'                => 'cover-image',
+            'render_template'    => 'page-templates/blocks/lc_large_text__cta.php',
             'mode'                => 'edit',
             'supports'            => array('mode' => false),
         ));
@@ -238,6 +238,9 @@ function core_image_block_type_args($args, $name)
         $args['render_callback'] = 'modify_core_add_container';
     }
     if ($name == 'core/list') {
+        $args['render_callback'] = 'modify_core_add_container';
+    }
+    if ($name == 'yoast/faq-block') {
         $args['render_callback'] = 'modify_core_add_container';
     }
 
