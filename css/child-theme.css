@@ -21243,8 +21243,7 @@ header .row-gap-2 {
 }
 .gallery__item a::after {
   content: "\f065";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
+  font-family: "Font Awesome 5 Pro";
   font-size: 1rem;
   line-height: 1;
   color: white;
