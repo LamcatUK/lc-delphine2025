@@ -8,8 +8,12 @@ header {
 
   a.nav-link {
     color: var(--col-white);
-    font-size: var(--fs-400);
-    font-weight: var(--fw-800);
+    // font-size: var(--fs-400);
+    // font-weight: var(--fw-800);
+
+    font-size: var(--fs-500);
+    font-family: var(--ff-heading);
+
     text-transform: uppercase;
     transition: var(--transition);
     @media (min-width: 992px) {
