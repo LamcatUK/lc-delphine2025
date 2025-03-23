@@ -1,0 +1,14 @@
+.large_text__cta {
+  &__card {
+    border: 2px solid var(--col-accent-400);
+    background: var(--col-gold-gradient);
+    text-align: center;
+    padding: 1rem;
+  }
+  &__title {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-700);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+}

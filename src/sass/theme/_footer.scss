@@ -1,0 +1,33 @@
+.footer {
+  background-color: var(--col-accent-900);
+  color: var(--col-white);
+  &__menu {
+    ul {
+      list-style: none;
+      padding-inline-start: 0;
+      li {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  a {
+    color: var(--col-white);
+    transition: color var(--transition);
+    text-decoration: none;
+    &:hover {
+      color: var(--col-accent-400);
+    }
+  }
+
+  // a:not(.footer__menu a):not(.colophon a) {
+  //   text-decoration: underline;
+  // }
+
+  .colophon {
+    border-top: 1px solid hsl(0 0 100% / 0.4);
+    padding-top: 1rem;
+    font-size: var(--fs-200);
+    color: var(--col-light);
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "key": "group_lc_divider",
+    "title": "LC Divider",
+    "fields": [
+        {
+            "key": "field_lc_divider_name",
+            "label": "LC Divider",
+            "name": "",
+            "type": "message"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/lc-divider"
+            }
+        ]
+    ],
+    "active": 1,
+    "description": "Field group for LC Divider block."
+}

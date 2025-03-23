@@ -1,0 +1,23 @@
+{
+    "key": "group_lc_find_us",
+    "title": "LC Find Us",
+    "fields": [
+        {
+            "key": "field_lc_find_us_name",
+            "label": "LC Find Us",
+            "name": "",
+            "type": "message"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/lc-find-us"
+            }
+        ]
+    ],
+    "active": 1,
+    "description": "Field group for LC Find Us block."
+}

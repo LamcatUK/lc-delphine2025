@@ -1,0 +1,66 @@
+.gallery {
+  --_gap: 10px;
+
+  &__container {
+    display: block; // Masonry will handle positioning
+  }
+
+  &__item {
+    width: calc(16.66% - var(--_gap)); // six items per row (100% / 6 width)
+    margin-bottom: var(--_gap); // Space between items
+    overflow: hidden; // Ensures the image doesn't overflow its container
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    // Icon background and positioning using the ::after pseudo-element
+    a::after {
+      content: "\f065";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 1rem;
+      line-height: 1;
+      color: white;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.25rem;
+      border-radius: 0.2rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    // Hover effect for image and pseudo-element
+    &:hover a::after {
+      opacity: 1;
+    }
+
+    // On hover, scale the image
+    &:hover img {
+      transform: scale(1.1); // Scale the image to 1.1
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media screen and (max-width: 992px) {
+    &__item {
+      width: calc(25% - var(--_gap)); // four items per row on medium screens
+    }
+  }
+  @media screen and (max-width: 768px) {
+    &__item {
+      width: calc(50% - var(--_gap)); // Two items per row on tablet screens
+    }
+  }
+  @media screen and (max-width: 576px) {
+    &__item {
+      width: calc(100% - var(--_gap)); // Full width on small screens
+    }
+  }
+}

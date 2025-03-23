@@ -1,0 +1,35 @@
+.testimonial_slider {
+  &__inner {
+    background: var(--col-gold-gradient);
+    max-width: 100%;
+  }
+
+  &__feature {
+    img {
+      aspect-ratio: 3 / 4;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__item__content {
+    font-size: var(--fs-500);
+  }
+
+  &__item__author {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    img {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 60px;
+    }
+    h3 {
+      font-family: var(--ff-body);
+      font-weight: var(--fw-800);
+      font-size: var(--fs-400);
+    }
+  }
+}

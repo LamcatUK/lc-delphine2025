@@ -1,0 +1,107 @@
+.faq_split_layout {
+  position: relative;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: 0;
+  }
+
+  &__left-bg {
+    width: 75%; // 9 of 12 columns
+    background: var(--col-gold-gradient);
+    // background: linear-gradient(
+    //   to bottom right,
+    //   #fce7df,
+    //   #f7e7e1
+    // ); // your rose/peach tone
+  }
+
+  &__right-bg {
+    width: 25%; // 3 of 12 columns
+    background: #fff;
+  }
+
+  .container-xl {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__left {
+    padding: 4rem 2rem;
+  }
+
+  &__right {
+    padding: 2rem;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    &__background {
+      flex-direction: column;
+    }
+
+    &__left-bg,
+    &__right-bg {
+      width: 100%;
+    }
+
+    &__right {
+      margin-top: 2rem;
+    }
+  }
+}
+.faq_accordion {
+  .accordion-item {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--col-accent-400); // soft line like your screenshot
+    border-radius: 0;
+    padding: 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .accordion-button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-family: var(--ff-body);
+    font-weight: var(--fw-800);
+    font-size: var(--fs-500);
+    color: var(--col-dark);
+
+    &::after {
+      transition: transform 0.3s ease;
+    }
+
+    &:not(.collapsed) {
+      color: var(--col-dark);
+    }
+    &:not(.collapsed)::after {
+      transform: rotate(180deg); // angle-up effect
+    }
+  }
+
+  .accordion-body {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+  }
+}
