@@ -1,52 +1,4 @@
 @charset "UTF-8";
-:root {
-  /* Colours */
-  --hsl-dark: 0 0% 20%;
-  --col-dark: hsl(var(--hsl-dark));
-  --hsl-light: 0 0% 98%;
-  --col-light: hsl(var(--hsl-light));
-  --col-white: #ffffff;
-  --hsl-grey-100: 0 0% 90%;
-  --col-grey-100: hsl(var(--hsl-grey-100));
-  --hsl-grey-400: 0 0% 83%;
-  --col-grey-400: hsl(var(--hsl-grey-400));
-  --hsl-accent-400: 19 59% 73%;
-  --col-accent-400: hsl(var(--hsl-accent-400));
-  --hsl-accent-900: 0 11% 33%;
-  --col-accent-900: hsl(var(--hsl-accent-900));
-  --col-gold-gradient: radial-gradient(
-      circle at 20% 30%,
-      #f3e9e2,
-      transparent 60%
-    ),
-    radial-gradient(circle at 80% 20%, #e4dcd9, transparent 70%),
-    radial-gradient(circle at 50% 80%, #d6b9a8, transparent 80%),
-    linear-gradient(135deg, #f6efe8 0%, #d5c1b6 100%);
-  /* Font Sizes */
-  --fs-900: 3.333rem; /* 60px */
-  --fs-800: 2.667rem; /* 48px */
-  --fs-700: 2rem; /* 36px */
-  --fs-600: 1.333rem; /* 24px */
-  --fs-500: 1.111rem; /* 20px */
-  --fs-400: 1rem; /* 18px */
-  --fs-300: 0.875rem; /* 15.75px */
-  --fs-200: 0.75rem; /* 13.5px */
-  --fs-100: 0.667rem; /* 12px */
-  /* Font Families */
-  --ff-body: "Montserrat", Tahoma, Geneva, Verdana, sans-serif;
-  --ff-heading: "Playfair Display", Georgia, "Times New Roman", serif;
-  --ff-fa: "Font Awesome 6 Free";
-  /* Font Weights */
-  --fw-400: 300;
-  --fw-600: 600;
-  --fw-800: 600;
-  /* Effects */
-  --transition: 250ms ease-out;
-  /* Site General */
-  --h-top: 82px;
-  --h-top-desktop: 125px;
-}
-
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -11165,6 +11117,56 @@ a.skip-link:not(:focus):not(:focus-within) {
   margin-left: 0;
 }
 
+:root {
+  /* Colours */
+  --hsl-dark: 0 0% 20%;
+  --col-dark: hsl(var(--hsl-dark));
+  --hsl-light: 0 0% 98%;
+  --col-light: hsl(var(--hsl-light));
+  --col-white: #ffffff;
+  --hsl-grey-100: 0 0% 90%;
+  --col-grey-100: hsl(var(--hsl-grey-100));
+  --hsl-grey-400: 0 0% 83%;
+  --col-grey-400: hsl(var(--hsl-grey-400));
+  --hsl-accent-400: 19 59% 73%;
+  --col-accent-400: hsl(var(--hsl-accent-400));
+  --hsl-accent-900: 0 11% 33%;
+  --col-accent-900: hsl(var(--hsl-accent-900));
+  --bs-link-color: var(--col-dark);
+  --bs-link-hover-color: #e3ac92 !important;
+  --col-gold-gradient: radial-gradient(
+      circle at 20% 30%,
+      #f3e9e2,
+      transparent 60%
+    ),
+    radial-gradient(circle at 80% 20%, #e4dcd9, transparent 70%),
+    radial-gradient(circle at 50% 80%, #d6b9a8, transparent 80%),
+    linear-gradient(135deg, #f6efe8 0%, #d5c1b6 100%);
+  /* Font Sizes */
+  --fs-900: 3.333rem; /* 60px */
+  --fs-800: 2.667rem; /* 48px */
+  --fs-700: 2rem; /* 36px */
+  --fs-600: 1.333rem; /* 24px */
+  --fs-500: 1.111rem; /* 20px */
+  --fs-400: 1rem; /* 18px */
+  --fs-300: 0.875rem; /* 15.75px */
+  --fs-200: 0.75rem; /* 13.5px */
+  --fs-100: 0.667rem; /* 12px */
+  /* Font Families */
+  --ff-body: "Montserrat", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --ff-fa: "Font Awesome 6 Free";
+  /* Font Weights */
+  --fw-400: 300;
+  --fw-600: 600;
+  --fw-800: 600;
+  /* Effects */
+  --transition: 250ms ease-out;
+  /* Site General */
+  --h-top: 82px;
+  --h-top-desktop: 125px;
+}
+
 /*!
  * Font Awesome Pro 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Commercial License)
@@ -21035,6 +21037,160 @@ header .row-gap-2 {
   color: var(--col-light);
 }
 
+.brides__item {
+  text-decoration: none;
+  color: inherit;
+  font-weight: inherit;
+  overflow: hidden;
+}
+.brides__item:hover .brides__image img {
+  transform: scale(1.05);
+}
+.brides__item:hover .brides__inner {
+  color: var(--col-accent-400);
+}
+.brides h3, .brides .h3 {
+  font-size: var(--fs-500);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-600);
+}
+.brides__item {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.brides__image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.brides__img {
+  aspect-ratio: 3/4;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  transition: transform var(--transition);
+}
+.brides__inner {
+  display: grid;
+  align-items: stretch;
+  row-gap: 1rem;
+  padding-top: 1rem;
+  transition: color var(--transition);
+}
+
+.bride .reading {
+  font-size: var(--fs-200);
+}
+.bride__title {
+  font-size: var(--fs-800);
+}
+.bride__image {
+  aspect-ratio: 3/4;
+  width: 100%;
+  margin-bottom: 1rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.bride__meta {
+  font-size: var(--fs-300);
+}
+.bride .sidebar {
+  position: sticky;
+  top: var(--h-top);
+}
+.bride .article h2, .bride .article .h2 {
+  font-size: var(--fs-700);
+}
+.bride .article h3, .bride .article .h3 {
+  font-size: var(--fs-600);
+}
+.bride .article .wp-block-columns {
+  gap: 1.5rem;
+}
+.bride .article a {
+  font-weight: var(--fw-600);
+}
+
+.related {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 576px) {
+  .related {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .related {
+    grid-template-columns: 1fr;
+  }
+}
+.related__card {
+  text-decoration: none;
+  display: grid;
+  grid-row: span 4;
+  gap: 0;
+  align-items: stretch;
+}
+.related__card:hover .related__title {
+  color: var(--col-accent-400);
+}
+.related__card:hover .related__image img {
+  transform: scale(1.05);
+}
+.related__image {
+  aspect-ratio: 3/4;
+  width: 100%;
+  overflow: hidden;
+}
+.related__image img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.related__title {
+  font-size: var(--fs-400);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-600);
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  color: var(--col-dark);
+  transition: color var(--transition);
+}
+
+.blog_cta {
+  width: 100%;
+  background-color: var(--col-light);
+  text-decoration: none;
+  border: 2px solid var(--col-light);
+  transition: border-color var(--transition);
+}
+.blog_cta:hover {
+  border-color: var(--col-accent-400);
+}
+.blog_cta__image {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  aspect-ratio: 5/1;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 992px) {
+  .blog_cta__image {
+    aspect-ratio: 16/9;
+  }
+}
+.blog_cta__title {
+  font-size: var(--fs-400);
+  color: var(--col-accent-400);
+  margin-bottom: 0.5rem;
+  padding-inline: 0.5rem;
+}
+
 .hero {
   min-height: 400px;
   position: relative;
@@ -21576,9 +21732,10 @@ main a:not([class]) {
 }
 main a:not([class]):hover {
   border-bottom: 2px solid currentColor;
+  color: var(--col-accent-400);
 }
 
-a.has-arrow {
+.has-arrow {
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -21586,7 +21743,7 @@ a.has-arrow {
   position: relative;
   padding-right: 1.5rem;
 }
-a.has-arrow::after {
+.has-arrow::after {
   content: "";
   background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Grid' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15.7 13.4'%3E%3Cpath d='M9.4,13l-.4.4-.79-.79.4-.4,4.95-4.95H0v-1.12h13.55L8.6,1.19l-.4-.4.79-.79.4.4,5.91,5.91.4.4-.4.4-5.91,5.91Z'/%3E%3C/svg%3E");
   position: absolute;
@@ -21597,7 +21754,10 @@ a.has-arrow::after {
   transform: translateY(-50%);
   transition: transform 0.3s ease;
 }
-a.has-arrow:hover::after {
+.has-arrow:hover {
+  color: var(--col-dark);
+}
+.has-arrow:hover::after {
   transform: translate(0.5rem, -50%);
 }
 

@@ -1,8 +1,3 @@
-$col-primary: #5d7f9c;
-$col-dark: #666666; // #4a4a4a;
-$col-darkest: #4a4a4a;
-$col-light: #f2f2f2;
-
 :root {
   /* Colours */
   --hsl-dark: 0 0% 20%; // black
@@ -24,6 +19,9 @@ $col-light: #f2f2f2;
 
   --hsl-accent-900: 0 11% 33%; // #5C4A4A
   --col-accent-900: hsl(var(--hsl-accent-900));
+
+  --bs-link-color: var(--col-dark);
+  --bs-link-hover-color: #e3ac92 !important;
 
   --col-gold-gradient: radial-gradient(
       circle at 20% 30%,

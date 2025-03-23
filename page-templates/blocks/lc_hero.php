@@ -1,5 +1,4 @@
 <section class="hero mb-5">
-    <?= wp_get_attachment_image(get_field('background'), 'full', false, ['class' => 'hero__bg']) ?>
     <div class="container-xl">
         <div class="hero__inner">
             <h1 class="mb-0"><?= get_field('title') ?></h1>

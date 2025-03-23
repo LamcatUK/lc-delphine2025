@@ -3,6 +3,7 @@
 @import "buttons";
 @import "header";
 @import "footer";
+@import "brides";
 @import "blocks/blocks";
 
 .main {
@@ -53,10 +54,11 @@ main a:not([class]) {
   transition: border-color var(--transition);
   &:hover {
     border-bottom: 2px solid currentColor;
+    color: var(--col-accent-400);
   }
 }
 
-a.has-arrow {
+.has-arrow {
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -76,8 +78,11 @@ a.has-arrow {
     transition: transform 0.3s ease;
   }
 
-  &:hover::after {
-    transform: translate(0.5rem, -50%);
+  &:hover {
+    color: var(--col-dark);
+    &::after {
+      transform: translate(0.5rem, -50%);
+    }
   }
 }
 

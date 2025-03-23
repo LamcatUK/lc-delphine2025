@@ -7,88 +7,93 @@ $bg = get_the_post_thumbnail_url($page_for_posts, 'full');
 
 get_header();
 ?>
-<main id="main" class="theme--blue">
-    <section class="hero hero--short" data-parallax="scroll"
-        data-image-src="<?= get_the_post_thumbnail_url(get_option('page_for_posts'), 'full') ?>">
-        <div class="container-bg bg--left">
-            <div class="container-xl pe-0">
-                <div class="hero__content">
-                    <h1 data-aos="fade-right">Reports &amp; News</h1>
+<main id="main" class="main">
+    <section class="hero mb-5">
+        <div class="container-xl">
+            <div class="hero__inner">
+                <h1 class="mb-0">Real Brides</h1>
+                <div class="fs-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, rem!</div>
+                <?php
+                include __DIR__ . '/page-templates/blocks/lc_divider.php';
+                ?>
+                <div class="hero__cta">
+                    <a href="/book-appointment/" class="button">Book Your Appointment</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="container-xl py-5">
+    <div class="container-xl py-5 brides">
         <?php
         if (get_the_content(null, false, $page_for_posts)) {
             echo '<div class="mb-5">' . get_the_content(null, false, $page_for_posts) . '</div>';
         }
+        ?>
+        <div class="row g-5">
+            <?php
+            $c = 0;
+            $colCount = 0;
+            $columnsPerRow = 3;
+            $first = true;
 
-        /*
-        $cats = get_categories(array('exclude' => array(32)));
-        ?>
-        <div class="filters mb-4">
-            <?php
-        echo '<button class="btn btn-outline-primary active me-2 mb-2" data-filter="*">All</button>';
-        foreach ($cats as $cat) {
-            echo '<button class="btn btn-outline-primary me-2 mb-2" data-filter=".' . cbslugify($cat->name) . '">' . $cat->cat_name . '</button>';
-        }
-        ?>
-        </div>
-        <?php
-        */
-        ?>
-        <div class="row w-100" id="newsGrid">
-            <?php
             while (have_posts()) {
                 the_post();
-                $img = get_the_post_thumbnail_url(get_the_ID(), 'large');
-                if (!$img) {
-                    $img = get_stylesheet_directory_uri() . '/img/default-blog.jpg';
-                }
-                $cats = get_the_category();
-                $category = wp_list_pluck($cats, 'name');
-                $flashcat = cbslugify($category[0]);
-                $catClass = implode(' ', array_map('cbslugify', $category));
-                $category = implode(', ', $category);
+                $img = get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'brides__img']) ?: '<img src="' . get_stylesheet_directory_uri() . '/img/default-blog.jpg" class="brides__img">';
 
-                if (has_category('event')) {
-                    $the_date = get_field('start_date', get_the_ID());
+                if ($first) {
+                    $delay = 0; // First row has no delay
                 } else {
-                    $the_date = get_the_date('jS F, Y');
+                    // ✅ Reset delay when starting a new row AFTER the first row
+                    if (($colCount % $columnsPerRow) === 0) {
+                        $c = 0;
+                    }
+
+                    $class = ''; // Normal rows
+                    $delay = $c;
                 }
 
-            ?>
-                <div
-                    class="grid_item col-lg-4 col-md-6 px-1 <?= $catClass ?>">
+                if ($colCount % $columnsPerRow === 0) {
+                    $c = 0;
+                }
+
+            ?><div class="col-md-6 col-lg-4">
                     <a href="<?= get_the_permalink() ?>"
-                        class="news_grid__item mb-2 mx-1"
-                        style="background-image:url(<?= $img ?>)"
-                        data-aos="fade">
-                        <div class="overlay <?= $catClass ?>"></div>
-                        <!-- div class="catflash <?= $catClass ?>">
-                    <?= $flashcat ?>
-            </div -->
-                        <h3><?= get_the_title() ?></h3>
-                        <div class="news_meta">
-                            <div class="news_meta__date">
-                                <?= get_the_date('j F Y') ?>
-                            </div>
+                        class="brides__item" data-aos="fade" data-aos-delay="<?= $c ?>">
+                        <div class="brides__image">
+                            <?= $img ?>
+                        </div>
+                        <div class="brides__inner">
+                            <h3><?= get_field('title') ?: get_the_title() ?></h3>
+                            <?php
+                            if ($first) {
+                            ?>
+                                <div><?= get_field('excerpt') ?: wp_trim_words(get_the_content(), 25) ?></div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </a>
                 </div>
             <?php
+
+                if ($first) {
+                    $first = false; // ✅ Mark first row as processed
+                } else {
+                    // ✅ Only increment delay for normal rows
+                    $c += 200;
+                    $colCount++;
+                }
             }
             ?>
         </div>
-        <!--        <div class="mt-5">
-        <?php
-        // numeric_posts_nav();
-        ?>
+        <div class="mt-5"><?= understrap_pagination() ?></div>
     </div>
-    -->
-    </div>
+    <section class="quote_cta has-gradient-background">
+        <div class="container-xl text-center py-5">
+            <div class="quote_cta__quote pb-5">Turn your ideas into your dream dress</div>
+            <a href="/book-appointment/" class="button">Book Your Appointment</a>
+        </div>
+    </section>
 </main>
 <?php
 
