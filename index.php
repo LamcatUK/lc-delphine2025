@@ -33,23 +33,16 @@ get_header();
             <?php
             $postIndex = 0;
             $columnsPerRow = 3;
-            $first = true;
 
             while (have_posts()) {
                 the_post();
 
                 $img = get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'brides__img']) ?: '<img src="' . get_stylesheet_directory_uri() . '/img/default-blog.jpg" class="brides__img">';
 
-                // Set delay for grid items (reset on each row)
-                if ($first) {
-                    $delay = 0;
-                } else {
-                    $delay = ($postIndex % $columnsPerRow) * 200;
-                }
-
-                // Output the grid item
+                // Calculate delay based on position in the row
+                $delay = ($postIndex % $columnsPerRow) * 200;
             ?>
-                <div class="col-md-6 col-lg-4<?= $first ? ' brides__item--first' : '' ?>">
+                <div class="col-md-6 col-lg-4">
                     <a href="<?= get_the_permalink() ?>"
                         class="brides__item"
                         data-aos="fade"
@@ -63,15 +56,11 @@ get_header();
                     </a>
                 </div>
             <?php
-
-                if ($first) {
-                    $first = false;
-                } else {
-                    $postIndex++;
-                }
+                $postIndex++;
             }
             ?>
         </div>
+
 
         <div class="mt-5"><?= understrap_pagination() ?></div>
     </div>
