@@ -4,25 +4,25 @@ function acf_blocks()
     if (function_exists('acf_register_block_type')) {
 
         acf_register_block_type(array(
-            'name'                => 'lc_button', 
-            'title'               => __('LC Button'), 
-            'category'            => 'layout',
-            'icon'                => 'cover-image', 
-            'render_template'    => 'page-templates/blocks/lc_button.php', 
-            'mode'                => 'edit',
-            'supports'            => array('mode' => false),
-        ));
-
-
-        acf_register_block_type(array(
-            'name'                => 'lc_portfolio',
-            'title'               => __('LC Portfolio'),
+            'name'                => 'lc_button',
+            'title'               => __('LC Button'),
             'category'            => 'layout',
             'icon'                => 'cover-image',
-            'render_template'    => 'page-templates/blocks/lc_portfolio.php',
+            'render_template'    => 'page-templates/blocks/lc_button.php',
             'mode'                => 'edit',
             'supports'            => array('mode' => false),
         ));
+
+
+        // acf_register_block_type(array(
+        //     'name'                => 'lc_portfolio',
+        //     'title'               => __('LC Portfolio'),
+        //     'category'            => 'layout',
+        //     'icon'                => 'cover-image',
+        //     'render_template'    => 'page-templates/blocks/lc_portfolio.php',
+        //     'mode'                => 'edit',
+        //     'supports'            => array('mode' => false),
+        // ));
 
 
         acf_register_block_type(array(

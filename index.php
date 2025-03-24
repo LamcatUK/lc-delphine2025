@@ -11,8 +11,8 @@ get_header();
     <section class="hero mb-5">
         <div class="container-xl">
             <div class="hero__inner">
-                <h1 class="mb-0">Real Brides</h1>
-                <div class="fs-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, rem!</div>
+                <h1 class="mb-0">Delphine's Portfolio</h1>
+                <div class="fs-600">My Latest Creations</div>
                 <?php
                 include __DIR__ . '/page-templates/blocks/lc_divider.php';
                 ?>
@@ -24,45 +24,32 @@ get_header();
     </section>
 
     <div class="container-xl py-5 brides">
-        <?php
-        if (get_the_content(null, false, $page_for_posts)) {
-            echo '<div class="mb-5">' . get_the_content(null, false, $page_for_posts) . '</div>';
-        }
-        ?>
-        <div class="row g-5">
-            <?php
-            $postIndex = 0;
-            $columnsPerRow = 3;
-
-            while (have_posts()) {
-                the_post();
-
-                $img = get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'brides__img']) ?: '<img src="' . get_stylesheet_directory_uri() . '/img/default-blog.jpg" class="brides__img">';
-
-                // Calculate delay based on position in the row
-                $delay = ($postIndex % $columnsPerRow) * 200;
-            ?>
-                <div class="col-md-6 col-lg-4">
-                    <a href="<?= get_the_permalink() ?>"
-                        class="brides__item"
-                        data-aos="fade"
-                        data-aos-delay="<?= $delay ?>">
-                        <div class="brides__image">
-                            <?= $img ?>
-                        </div>
-                        <div class="brides__inner">
-                            <h3><?= get_field('title') ?: get_the_title() ?></h3>
-                        </div>
-                    </a>
+        <section class="portfolio">
+            <div class="container-xl py-5">
+                <div class="portfolio__grid">
+                    <?php
+                    $q = new WP_Query([
+                        'post_type' => 'post',
+                        'posts_per_page' => -1
+                    ]);
+                    if ($q->have_posts()) {
+                        $d = 0;
+                        while ($q->have_posts()) {
+                            $q->the_post();
+                    ?>
+                            <div class="portfolio__item">
+                                <a href="<?= get_the_permalink() ?>">
+                                    <?= get_the_post_thumbnail(get_the_ID(), 'full', ['class' => 'img-fluid d-block w-100', 'alt' => get_the_title()]) ?>
+                                </a>
+                            </div>
+                    <?php
+                        }
+                    }
+                    wp_reset_postdata();
+                    ?>
                 </div>
-            <?php
-                $postIndex++;
-            }
-            ?>
-        </div>
-
-
-        <div class="mt-5"><?= understrap_pagination() ?></div>
+            </div>
+        </section>
     </div>
     <section class="quote_cta has-gradient-background">
         <div class="container-xl text-center py-5">

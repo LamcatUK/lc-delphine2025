@@ -4,12 +4,12 @@ function rename_default_post_type()
     global $menu, $submenu;
 
     // Rename "Posts" in the main admin menu
-    $menu[5][0] = 'Real Brides';
+    $menu[5][0] = 'Portfolio';
 
     // Rename sub-menu items
     if (isset($submenu['edit.php'])) {
-        $submenu['edit.php'][5][0] = 'All Brides';
-        $submenu['edit.php'][10][0] = 'Add New Bride';
+        $submenu['edit.php'][5][0] = 'All Items';
+        $submenu['edit.php'][10][0] = 'Add New Item';
         $submenu['edit.php'][15][0] = 'Categories'; // If you want to keep categories
         $submenu['edit.php'][16][0] = 'Tags'; // If you want to keep tags
     }
@@ -22,19 +22,19 @@ function rename_post_object_labels($args)
     global $wp_post_types;
 
     $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Real Brides';
-    $labels->singular_name = 'Bride';
-    $labels->add_new = 'Add New Bride';
-    $labels->add_new_item = 'Add New Bride';
-    $labels->edit_item = 'Edit Bride';
-    $labels->new_item = 'New Bride';
-    $labels->view_item = 'View Bride';
-    $labels->search_items = 'Search Brides';
-    $labels->not_found = 'No brides found';
-    $labels->not_found_in_trash = 'No brides found in Trash';
-    $labels->all_items = 'All Brides';
-    $labels->menu_name = 'Real Brides';
-    $labels->name_admin_bar = 'Bride';
+    $labels->name = 'Portfolio';
+    $labels->singular_name = 'Item';
+    $labels->add_new = 'Add New Item';
+    $labels->add_new_item = 'Add New Item';
+    $labels->edit_item = 'Edit Item';
+    $labels->new_item = 'New Item';
+    $labels->view_item = 'View Item';
+    $labels->search_items = 'Search Items';
+    $labels->not_found = 'No items found';
+    $labels->not_found_in_trash = 'No items found in Trash';
+    $labels->all_items = 'All Items';
+    $labels->menu_name = 'Portfolio';
+    $labels->name_admin_bar = 'Item';
 }
 
 add_action('init', 'rename_post_object_labels');
