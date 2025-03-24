@@ -8,7 +8,7 @@
             include __DIR__ . '/lc_divider.php';
         }
         ?>
-        <div class="row justify-content-center">
+        <div class="row g-5 justify-content-center">
             <?php
             # get child pages of 'services' page
             $args = array(
