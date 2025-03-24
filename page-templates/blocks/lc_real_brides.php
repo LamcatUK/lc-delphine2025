@@ -2,7 +2,7 @@
     <div class="container-xl py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0">Real Brides</h2>
-            <a href="/real-brides/" class="has-arrow">See More</a>
+            <a href="/portfolio/" class="has-arrow">See More</a>
         </div>
         <?php
         $q = new WP_Query([
