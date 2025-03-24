@@ -7,7 +7,6 @@
                 'posts_per_page' => -1
             ]);
             if ($q->have_posts()) {
-                echo '<div class="row g-5 mb-5">';
                 $d = 0;
                 while ($q->have_posts()) {
                     $q->the_post();
@@ -19,7 +18,6 @@
                     </div>
             <?php
                 }
-                echo '</div>';
             }
             wp_reset_postdata();
             ?>
