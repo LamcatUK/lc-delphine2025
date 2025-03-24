@@ -22,34 +22,37 @@ get_header();
             </div>
         </div>
     </section>
-
-    <div class="container-xl py-5 brides">
-        <section class="portfolio">
-            <div class="container-xl py-5">
-                <div class="portfolio__grid">
-                    <?php
-                    $q = new WP_Query([
-                        'post_type' => 'post',
-                        'posts_per_page' => -1
-                    ]);
-                    if ($q->have_posts()) {
-                        $d = 0;
-                        while ($q->have_posts()) {
-                            $q->the_post();
-                    ?>
-                            <div class="portfolio__item">
-                                <a href="<?= get_the_permalink() ?>">
-                                    <?= get_the_post_thumbnail(get_the_ID(), 'full', ['class' => 'img-fluid d-block w-100', 'alt' => get_the_title()]) ?>
-                                </a>
+    <div class="container-xl pb-5 brides">
+        <?php
+        if (function_exists('yoast_breadcrumb')) {
+            yoast_breadcrumb('<div class="yoast-breadcrumbs ps-0 pb-4">', '</div>');
+        }
+        ?>
+        <div class="row g-5">
+            <?php
+            $q = new WP_Query([
+                'post_type' => 'post',
+                'posts_per_page' => -1
+            ]);
+            if ($q->have_posts()) {
+                $d = 0;
+                while ($q->have_posts()) {
+                    $q->the_post();
+            ?>
+                    <div class="col-md-4 col-lg-3">
+                        <a href="<?= get_the_permalink() ?>" class="real_brides__card" data-aos="fade" data-aos-delay="<?= $d ?>">
+                            <div class="real_brides__image">
+                                <?= get_the_post_thumbnail(null, 'large', ['class' => 'img-fluid', 'alt' => get_the_title()]) ?>
                             </div>
-                    <?php
-                        }
-                    }
-                    wp_reset_postdata();
-                    ?>
-                </div>
-            </div>
-        </section>
+                            <h3><?= get_the_title() ?></h3>
+                        </a>
+                    </div>
+            <?php
+                }
+            }
+            wp_reset_postdata();
+            ?>
+        </div>
     </div>
     <section class="quote_cta has-gradient-background">
         <div class="container-xl text-center py-5">
