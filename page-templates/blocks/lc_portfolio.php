@@ -2,34 +2,27 @@
     <div class="container-xl py-5">
         <div class="portfolio__grid">
             <?php
-            foreach (get_field('portfolio') as $i) {
+            $q = new WP_Query([
+                'post_type' => 'post',
+                'posts_per_page' => -1
+            ]);
+            if ($q->have_posts()) {
+                echo '<div class="row g-5 mb-5">';
+                $d = 0;
+                while ($q->have_posts()) {
+                    $q->the_post();
             ?>
-                <div class="portfolio__item">
-                    <a href="<?= wp_get_attachment_image_url($i, 'full') ?>"
-                        class="glightbox" data-gallery="gallery1"
-                        data-glightbox="description:<?= wp_get_attachment_caption($i) ?: '' ?>">
-                        <img src="<?= wp_get_attachment_image_url($i, 'full') ?>"
-                            alt="image" class="d-block w-100" />
-                        <?php
-                        if (wp_get_attachment_caption($i)) {
-                        ?>
-                            <div class="portfolio__caption"><?= wp_get_attachment_caption($i) ?></div>
-                        <?php
-                        }
-                        ?>
-                    </a>
-                </div>
+                    <div class="portfolio__item">
+                        <a href="<?= get_the_permalink() ?>">
+                            <?= get_the_post_thumbnail(get_the_ID(), 'full', ['class' => 'img-fluid d-block w-100', 'alt' => get_the_title()]) ?>
+                        </a>
+                    </div>
             <?php
+                }
+                echo '</div>';
             }
+            wp_reset_postdata();
             ?>
         </div>
     </div>
 </section>
-<?php
-add_action('wp_footer', function () {
-?>
-    <script type="text/javascript">
-        const lightbox = GLightbox();
-    </script>
-<?php
-}, 9999);
