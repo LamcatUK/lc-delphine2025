@@ -8,10 +8,18 @@ function rename_default_post_type()
 
     // Rename sub-menu items
     if (isset($submenu['edit.php'])) {
-        $submenu['edit.php'][5][0] = 'All Items';
-        $submenu['edit.php'][10][0] = 'Add New Item';
-        $submenu['edit.php'][15][0] = 'Categories'; // If you want to keep categories
-        $submenu['edit.php'][16][0] = 'Tags'; // If you want to keep tags
+        if (isset($submenu['edit.php'][5][0])) {
+            $submenu['edit.php'][5][0] = 'All Items';
+        }
+        if (isset($submenu['edit.php'][10][0])) {
+            $submenu['edit.php'][10][0] = 'Add New Item';
+        }
+        if (isset($submenu['edit.php'][15][0])) {
+            $submenu['edit.php'][15][0] = 'Categories';
+        }
+        if (isset($submenu['edit.php'][16][0])) {
+            $submenu['edit.php'][16][0] = 'Tags';
+        }
     }
 }
 
@@ -78,3 +86,4 @@ function register_testimonial_cpt()
     register_post_type('testimonial', $args);
 }
 add_action('init', 'register_testimonial_cpt');
+

@@ -199,3 +199,24 @@ function add_custom_menu_item($items, $args)
     return $items;
 }
 add_filter('wp_nav_menu_items', 'add_custom_menu_item', 10, 2);
+
+
+add_filter( 'show_admin_bar', function( $show ) {
+    if ( current_user_can( 'wpamelia-customer' ) ) {
+        return false;
+    }
+    return $show;
+});
+
+add_action( 'admin_init', function() {
+    if ( current_user_can( 'wpamelia-customer' ) && ! defined( 'DOING_AJAX' ) ) {
+        wp_redirect( home_url( '/my-account/' ) );
+        exit;
+    }
+});
+add_action( 'wp_footer', function () {
+    if ( is_user_logged_in() ) {
+        $user = wp_get_current_user();
+        echo '<pre>'; print_r( $user->roles ); echo '</pre>';
+    }
+});
