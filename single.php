@@ -11,7 +11,7 @@ $img = get_the_post_thumbnail_url(get_the_ID(), 'full');
     $sidebar = array();
     $after;
     ?>
-    <div class="container-xl">
+    <div class="container-xl pt-5">
         <div class="row g-4 pb-4">
             <div class="col-lg-10 order-2 article">
                 <?php
