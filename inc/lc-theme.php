@@ -214,9 +214,9 @@ add_action( 'admin_init', function() {
         exit;
     }
 });
-add_action( 'wp_footer', function () {
-    if ( is_user_logged_in() ) {
-        $user = wp_get_current_user();
-        echo '<pre>'; print_r( $user->roles ); echo '</pre>';
-    }
-});
+// add_action( 'wp_footer', function () {
+//     if ( is_user_logged_in() ) {
+//         $user = wp_get_current_user();
+//         echo '<pre>'; print_r( $user->roles ); echo '</pre>';
+//     }
+// });
