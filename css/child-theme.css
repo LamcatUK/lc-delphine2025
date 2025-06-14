@@ -11143,11 +11143,11 @@ a.skip-link:not(:focus):not(:focus-within) {
     radial-gradient(circle at 50% 80%, #d6b9a8, transparent 80%),
     linear-gradient(135deg, #f6efe8 0%, #d5c1b6 100%);
   /* Font Sizes */
-  --fs-900: 3.333rem; /* 60px */
-  --fs-800: 2.667rem; /* 48px */
-  --fs-700: 2rem; /* 36px */
-  --fs-600: 1.333rem; /* 24px */
-  --fs-500: 1.111rem; /* 20px */
+  --fs-900: clamp(2.75rem, 5vw + 1rem, 3.333rem); /* ~44px–60px */
+  --fs-800: clamp(2.25rem, 4vw + 1rem, 2.667rem); /* ~36px–48px */
+  --fs-700: clamp(1.75rem, 3vw + 1rem, 2rem); /* ~30px–36px */
+  --fs-600: clamp(1.25rem, 2vw + 1rem, 1.333rem); /* ~20px–24px */
+  --fs-500: clamp(1.05rem, 1.5vw + 1rem, 1.111rem); /* ~18.5px–20px */
   --fs-400: 1rem; /* 18px */
   --fs-300: 0.875rem; /* 15.75px */
   --fs-200: 0.75rem; /* 13.5px */
