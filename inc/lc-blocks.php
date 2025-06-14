@@ -4,6 +4,17 @@ function acf_blocks()
     if (function_exists('acf_register_block_type')) {
 
         acf_register_block_type(array(
+            'name'                => 'lc_price_list', 
+            'title'               => __('LC Price List'), 
+            'category'            => 'layout',
+            'icon'                => 'cover-image', 
+            'render_template'    => 'page-templates/blocks/lc_price_list.php', 
+            'mode'                => 'edit',
+            'supports'            => array('mode' => false),
+        ));
+
+
+        acf_register_block_type(array(
             'name'                => 'lc_button',
             'title'               => __('LC Button'),
             'category'            => 'layout',

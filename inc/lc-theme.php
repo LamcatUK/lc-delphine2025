@@ -220,3 +220,26 @@ add_action( 'admin_init', function() {
 //         echo '<pre>'; print_r( $user->roles ); echo '</pre>';
 //     }
 // });
+
+add_action( 'wp_footer', 'custom_set_default_amelia_phone_country' );
+function custom_set_default_amelia_phone_country() {
+    if ( ! is_page( 'book-appointment' ) ) { // Replace with your actual page slug
+        return;
+    }
+    ?>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkInterval = setInterval(() => {
+            const phoneInput = document.querySelector('input[type="tel"]');
+
+            if (phoneInput && window.intlTelInput) {
+                clearInterval(checkInterval);
+                window.intlTelInput(phoneInput, {
+                    initialCountry: 'gb'
+                });
+            }
+        }, 300);
+    });
+    </script>
+    <?php
+}
