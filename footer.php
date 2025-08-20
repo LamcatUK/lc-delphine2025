@@ -36,6 +36,7 @@ defined('ABSPATH') || exit;
                 &copy; <?= date('Y') ?> Delphine Couture
             </div>
             <div>
+                <a href="/privacy-policy" class="lc" title="Privacy Policy">Privacy</a> &amp; <a href="/cookie-policy" class="lc" title="Cookie Policy">Cookie Policy</a> |
                 Site by <a href="https://www.lamcat.co.uk/" rel="nofollow noopener" target="_blank" class="lc" title="Site by Lamcat">Lamcat</a>
             </div>
         </div>
