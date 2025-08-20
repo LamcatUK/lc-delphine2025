@@ -54,6 +54,9 @@ get_header();
             ?>
         </div>
     </div>
+    <div class="container">
+        <?= do_shortcode( '[instagram-feed feed=1]' ); ?>
+    </div>
     <section class="quote_cta has-gradient-background">
         <div class="container-xl text-center py-5">
             <div class="quote_cta__quote pb-5">Turn your ideas into your dream dress</div>
