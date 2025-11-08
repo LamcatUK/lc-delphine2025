@@ -149,6 +149,74 @@ main a:not([class]) {
   margin-top: 4rem !important;
 }
 
+// amelia booking form
+.amelia-app-booking #amelia-booking-wrap #am-step-booking .am-select-service,
+.amelia-app-booking
+  #amelia-booking-wrap
+  .am-step-booking-catalog
+  .am-select-service {
+  width: 100% !important;
+}
+
+.amelia-app-booking
+  #amelia-booking-wrap
+  #am-step-booking
+  .am-select-date
+  .am-calendar-stepByStepForm-calendarDateTimeForm
+  div,
+.amelia-app-booking
+  #amelia-booking-wrap
+  .am-step-booking-catalog
+  .am-select-date
+  .am-calendar-stepByStepForm-calendarDateTimeForm
+  div {
+  // color: var(--col-dark) !important;
+}
+
+.amelia-app-booking #amelia-booking-wrap .el-button--primary.el-button span,
+#am-modal.am-modal.am-in-body .el-button--primary.el-button span {
+  color: var(--col-white) !important;
+}
+
+.amelia-app-booking
+  #amelia-booking-wrap
+  .am-step-booking-catalog
+  .am-form-stepByStepForm-calendarDateTimeForm.am-select-date
+  .am-appointment-times
+  .el-radio-button
+  .el-radio-button__inner {
+  // color: var(--col-dark) !important;
+  font-size: 14px !important;
+  // border: 1px solid var(--col-dark) !important;
+}
+
+.amelia-app-booking
+  #amelia-booking-wrap
+  #am-step-booking
+  .am-confirm-booking
+  .am-confirmation-booking-header
+  img,
+.amelia-app-booking
+  #amelia-booking-wrap
+  .am-step-booking-catalog
+  .am-confirm-booking
+  .am-confirmation-booking-header
+  img,
+.amelia-app-booking
+  #amelia-booking-wrap
+  #am-step-booking
+  .am-confirm-booking
+  .am-confirmation-booking-header
+  svg,
+.amelia-app-booking
+  #amelia-booking-wrap
+  .am-step-booking-catalog
+  .am-confirm-booking
+  .am-confirmation-booking-header
+  svg {
+  display: none !important;
+}
+
 // show stuff that overflows horizontally
 // * {
 //     outline: 1px solid #f00 !important;

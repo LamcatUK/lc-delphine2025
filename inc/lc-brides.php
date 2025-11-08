@@ -1,53 +1,27 @@
 <?php
-function rename_default_post_type()
+
+// Rename default 'post' post type to 'Portfolio' using WordPress standard filter
+add_filter('post_type_labels_post', 'rename_post_to_portfolio');
+function rename_post_to_portfolio($labels)
 {
-    global $menu, $submenu;
-
-    // Rename "Posts" in the main admin menu
-    $menu[5][0] = 'Portfolio';
-
-    // Rename sub-menu items
-    if (isset($submenu['edit.php'])) {
-        if (isset($submenu['edit.php'][5][0])) {
-            $submenu['edit.php'][5][0] = 'All Items';
-        }
-        if (isset($submenu['edit.php'][10][0])) {
-            $submenu['edit.php'][10][0] = 'Add New Item';
-        }
-        if (isset($submenu['edit.php'][15][0])) {
-            $submenu['edit.php'][15][0] = 'Categories';
-        }
-        if (isset($submenu['edit.php'][16][0])) {
-            $submenu['edit.php'][16][0] = 'Tags';
-        }
-    }
-}
-
-add_action('admin_menu', 'rename_default_post_type');
-
-function rename_post_object_labels($args)
-{
-    global $wp_post_types;
-
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Portfolio';
-    $labels->singular_name = 'Item';
-    $labels->add_new = 'Add New Item';
-    $labels->add_new_item = 'Add New Item';
-    $labels->edit_item = 'Edit Item';
-    $labels->new_item = 'New Item';
-    $labels->view_item = 'View Item';
-    $labels->search_items = 'Search Items';
-    $labels->not_found = 'No items found';
+    $labels->name               = 'Portfolio';
+    $labels->singular_name      = 'Portfolio Item';
+    $labels->add_new            = 'Add New';
+    $labels->add_new_item       = 'Add New Item';
+    $labels->edit_item          = 'Edit Item';
+    $labels->new_item           = 'Item';
+    $labels->view_item          = 'View Item';
+    $labels->search_items       = 'Search Items';
+    $labels->not_found          = 'No items found';
     $labels->not_found_in_trash = 'No items found in Trash';
-    $labels->all_items = 'All Items';
-    $labels->menu_name = 'Portfolio';
-    $labels->name_admin_bar = 'Item';
+    $labels->all_items          = 'All Items';
+    $labels->menu_name          = 'Portfolio';
+    $labels->name_admin_bar     = 'Portfolio Item';
+
+    return $labels;
 }
 
-add_action('init', 'rename_post_object_labels');
-
-
+// Register Testimonial custom post type
 function register_testimonial_cpt()
 {
     $labels = [

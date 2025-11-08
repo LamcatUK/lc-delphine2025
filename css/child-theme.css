@@ -21839,6 +21839,27 @@ main a:not([class]):hover {
   margin-top: 4rem !important;
 }
 
+.amelia-app-booking #amelia-booking-wrap #am-step-booking .am-select-service,
+.amelia-app-booking #amelia-booking-wrap .am-step-booking-catalog .am-select-service {
+  width: 100% !important;
+}
+
+.amelia-app-booking #amelia-booking-wrap .el-button--primary.el-button span,
+#am-modal.am-modal.am-in-body .el-button--primary.el-button span {
+  color: var(--col-white) !important;
+}
+
+.amelia-app-booking #amelia-booking-wrap .am-step-booking-catalog .am-form-stepByStepForm-calendarDateTimeForm.am-select-date .am-appointment-times .el-radio-button .el-radio-button__inner {
+  font-size: 14px !important;
+}
+
+.amelia-app-booking #amelia-booking-wrap #am-step-booking .am-confirm-booking .am-confirmation-booking-header img,
+.amelia-app-booking #amelia-booking-wrap .am-step-booking-catalog .am-confirm-booking .am-confirmation-booking-header img,
+.amelia-app-booking #amelia-booking-wrap #am-step-booking .am-confirm-booking .am-confirmation-booking-header svg,
+.amelia-app-booking #amelia-booking-wrap .am-step-booking-catalog .am-confirm-booking .am-confirmation-booking-header svg {
+  display: none !important;
+}
+
 /*
 var all = document.getElementsByTagName("*"), i = 0, rect, docWidth = document.documentElement.offsetWidth;
 for (; i < all.length; i++) {
