@@ -223,20 +223,32 @@ add_action( 'admin_init', function() {
 
 add_action( 'wp_footer', 'custom_set_default_amelia_phone_country' );
 function custom_set_default_amelia_phone_country() {
-    if ( ! is_page( 'book-appointment' ) ) { // Replace with your actual page slug
+    if ( ! is_page( 'book-appointment' ) ) {
         return;
     }
     ?>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // console.log('Amelia phone country script loaded');
         const checkInterval = setInterval(() => {
-            const phoneInput = document.querySelector('input[type="tel"]');
+            // Look for the Amelia country selector
+            const countrySelector = document.querySelector('.am-selected-flag');
+            const ukOption = document.querySelector('.el-select-dropdown__item .am-flag-gb');
+            
+            // console.log('Country selector:', countrySelector);
+            // console.log('UK option:', ukOption);
 
-            if (phoneInput && window.intlTelInput) {
+            if (countrySelector && ukOption) {
                 clearInterval(checkInterval);
-                window.intlTelInput(phoneInput, {
-                    initialCountry: 'gb'
-                });
+                
+                // Click the selector to open dropdown
+                countrySelector.click();
+                
+                // Wait a moment for dropdown to open, then click UK option
+                setTimeout(() => {
+                    ukOption.closest('.el-select-dropdown__item').click();
+                    // console.log('Country set to United Kingdom');
+                }, 100);
             }
         }, 300);
     });
